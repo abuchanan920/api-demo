@@ -1,0 +1,13 @@
+To Build:
+
+Need Java and Docker installed
+
+./gradlew build distDocker
+
+docker run -p 8080:8080 -p 8081:8081 -e PERSON=Andrew thoughtworks/java-webservice-demo:0.1 server
+
+Links to try:
+http://localhost:8080/greeting
+http://localhost:8080/greeting?person=You
+http://localhost:8080/swagger
+http://localhost:8081
