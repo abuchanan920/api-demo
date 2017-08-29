@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.codahale.metrics.annotation.Timed;
+import com.thoughtworks.demo.model.Greeting;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
@@ -35,4 +36,12 @@ public class GreetingResource {
 		return Response.ok(result).build();
 	}
 
+	@GET
+	@Path("/class")
+	@Timed
+	public Greeting getGreetingClass(@ApiParam(value = "The name of the person to greet", required=false) @QueryParam("person") String person) {
+		Greeting result = new Greeting(greeting, person == null ? this.person : person);
+		return result;
+	}
+	
 }
